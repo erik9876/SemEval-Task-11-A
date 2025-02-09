@@ -7,6 +7,7 @@ import gc
 import pandas as pd
 import random
 import numpy as np
+from pathlib import Path
 
 # ---------------------- #
 # Reproducibility & Setup
@@ -348,5 +349,7 @@ if __name__ == "__main__":
         results.append((config, threshold, score))
 
     # Save all the results to a CSV file
+    folder_path = Path("results")
+    folder_path.mkdir(parents=True, exist_ok=True)
     save_results(results, file_name=f"results/results_final_config.csv")
     print(f"Training complete. Results saved to 'results/results_final_config.csv'.")
